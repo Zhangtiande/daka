@@ -30,14 +30,8 @@ function sendMail (user, pass, content) {
 
 
 module.exports = function (subject, text) {
-  if (!process.env["EMIL"]) 
-    console.log("MAIL info not found");
-    return
-  let inf = JSON.parse(process.env["MAIL"])
-  let user = inf["user"];
-  let pass = inf["pass"];
-  let to = inf["to"];
-  console.log(to);
+  if (!process.env["MAIL"]) return;
+  let {user, pass, to} = JSON.parse(process.env["MAIL"])
   if(user && pass && to && subject && text){
     sendMail(user, pass,
       {
