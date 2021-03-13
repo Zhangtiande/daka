@@ -31,7 +31,11 @@ function sendMail (user, pass, content) {
 
 module.exports = function (subject, text) {
   if (!process.env["MAIL"]) return;
-  let {user, pass, to} = JSON.parse(process.env["MAIL"])
+  let in = JSON.parse(process.env["MAIL"])
+  let user = in["user"];
+  let pass = in["pass"];
+  let to = in["to"];
+  console.log(to);
   if(user && pass && to && subject && text){
     sendMail(user, pass,
       {
