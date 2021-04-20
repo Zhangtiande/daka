@@ -2,7 +2,7 @@ const fetch = require("./node-fetch/lib");
 const sendMail = require('./mail'); // 邮箱提醒
 
 let info; // 全局变量，存储用户信息
-let again = 3; // 任务失败重新执行次数
+let again = 5; // 任务失败重新执行次数
 
 // 模拟登录
 async function login () {
